@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Matrix Calculator</title>
+    <!-- Link to external CSS file using Flask's url_for function -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home_page.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Hello! Welcome to Matrix Calculator WebApp!</h1>
+    </header>
+    <h2>Group Num: 10</h2>
+    <h3>Asaf's Id: 322640210</h3>
+    <h3>Gal's Id: 322640210</h3>
+    <h3>Rotem's Id: 322640210</h3>
+
+    <footer>
+        <p>To multiply the following two matrices, <strong>Matrix A</strong> and <strong>Matrix B</strong>, <a href="/calculate?operation=multiply&mat1=1,2,3,4,5,6,7,8,9&mat2=9,8,7,6,5,4,3,2,1">click here</a>.</p>
+
+        <!-- Matrix containers -->
+        <div class="matrix-container">
+            <!-- Matrix A -->
+            <div>
+                <h4>Matrix A:</h4>
+                <table class="matrix">
+                    <tr><td>1</td><td>2</td><td>3</td></tr>
+                    <tr><td>4</td><td>5</td><td>6</td></tr>
+                    <tr><td>7</td><td>8</td><td>9</td></tr>
+                </table>
+            </div>
+
+            <!-- Matrix B -->
+            <div>
+                <h4>Matrix B:</h4>
+                <table class="matrix">
+                    <tr><td>9</td><td>8</td><td>7</td></tr>
+                    <tr><td>6</td><td>5</td><td>4</td></tr>
+                    <tr><td>3</td><td>2</td><td>1</td></tr>
+                </table>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

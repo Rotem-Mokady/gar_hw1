@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculation Result</title>
+    <!-- Reference to the external CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/calculation_result.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Result:</h1>
+    </header>
+
+    <!-- Error message if error_message is passed -->
+    {% if error_message %}
+        <div class="error-message">
+            <p>{{ error_message }}</p>
+        </div>
+    {% endif %}
+
+    <!-- Display a matrix if np.array is passed as table -->
+    {% if table %}
+        <table>
+            <tbody>
+                {% for row in table %}
+                    <tr>
+                        {% for cell in row %}
+                            <td>{{ cell }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+    <!-- Return to home page link with added class to move it down -->
+    <a class="return-home" href="{{ url_for('home_page') }}">Return to home page</a>
+</body>
+</html>

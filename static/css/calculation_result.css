@@ -1,0 +1,32 @@
+/* Center the h1 tag */
+h1 {
+    text-align: center;
+}
+
+/* Center content in the body */
+body {
+    text-align: center;
+}
+
+/* Error message styling */
+.error-message {
+    color: red;
+    font-weight: bold;
+}
+
+/* Table styling */
+table {
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+}
+
+/* Add space below the table */
+a.return-home {
+    margin-top: 20px; /* Adjust this value to move it further down */
+    display: inline-block;
+}

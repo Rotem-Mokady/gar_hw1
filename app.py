@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 @app.errorhandler(404)
 def invalid_route(e):
-    return "You have inserted an invalid path", 404
+    return render_template("error.html")
 
 
 @app.route('/')

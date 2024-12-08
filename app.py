@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 
-from utils import validate_fixed_matrix, convert_raw_matrix_to_real_matrix, matrices_calc
+from utils import validate_fixed_matrix, convert_raw_matrix_to_real_matrix, matrices_calc, convert_to_integer
 
 
 app = Flask(__name__)
@@ -33,10 +33,12 @@ def calculate():
         error_message = "The two matrices must be on the same size"
 
     if not error_message:
-        # Convert the raw matrices to numpy objects and calc
+        # Convert the raw input matrices to numpy objects
         fixed_mat1, fixed_mat2 = convert_raw_matrix_to_real_matrix(mat1), convert_raw_matrix_to_real_matrix(mat2)
+        # final matrix after calculation
         result_matrix = matrices_calc(operation=operation, mat1=fixed_mat1, mat2=fixed_mat2)
-        table = result_matrix.tolist()
+        # create table for final presentation in the HTML template
+        table = [[convert_to_integer(element) for element in line] for line in result_matrix]
 
     return render_template("calculation_result.html", error_message=error_message, table=table)
 

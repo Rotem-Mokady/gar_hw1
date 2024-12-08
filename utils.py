@@ -1,4 +1,4 @@
-from typing import Any
+from typing import Any, Union
 import numpy as np
 
 
@@ -45,7 +45,7 @@ def convert_raw_matrix_to_real_matrix(mat: str) -> np.array:
 
 def matrices_calc(operation: str, mat1: np.array, mat2: np.array) -> np.array:
     """
-    Returns the result of the chosen calculation and two matrices.
+    Returns the result of the chosen calculation and two given matrices.
     """
     if operation.lower() == 'add':
         return np.add(mat1, mat2)
@@ -53,6 +53,17 @@ def matrices_calc(operation: str, mat1: np.array, mat2: np.array) -> np.array:
         return np.dot(mat1, mat2)
     else:
         raise ValueError('Unavailable operation')
+
+
+def convert_to_integer(numeric_element: Union[int, float]) -> Union[int, float]:
+    """
+    convert to integer if there is only 0 after the decimal point.
+    :param numeric_element: int or float.
+    :return: int or float.
+    """
+    if int(numeric_element) == float(numeric_element):
+        return int(numeric_element)
+    return numeric_element
 
 
 

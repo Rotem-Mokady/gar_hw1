@@ -14,7 +14,7 @@ def validate_fixed_matrix(mat: Any) -> bool:
     # must include only numeric elements
     for element in mat_array:
         try:
-            int(element)
+            float(element)
         except Exception as e:
             print(e)
             return False
@@ -39,7 +39,7 @@ def convert_raw_matrix_to_real_matrix(mat: str) -> np.array:
     # get the sqrt value for the matrix building
     sqrt_value = int(np.sqrt(len(numbers_list)))
     # build the matrix
-    matrix = np.array(numbers_list, dtype=np.int64).reshape(sqrt_value, sqrt_value)
+    matrix = np.array(numbers_list, dtype=np.float64).reshape(sqrt_value, sqrt_value)
     return matrix
 
 

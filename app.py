@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, url_for
 
 from utils import validate_fixed_matrix, convert_raw_matrix_to_real_matrix, matrices_calc, convert_to_integer
 
@@ -8,7 +8,15 @@ app = Flask(__name__)
 
 @app.errorhandler(404)
 def invalid_route(e):
-    return render_template("error.html")
+    return """
+        <head>
+            <title>Error</title>
+        </head>
+        <body>
+            <h1>You have inserted an invalid path</h1>
+            <a class="return-home" href="{home_page_url}">Return to home page</a>
+        </body>
+        """.format(home_page_url=url_for('home_page'))
 
 
 @app.route('/')

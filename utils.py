@@ -15,7 +15,7 @@ def validate_fixed_matrix(mat: Any) -> bool:
     for element in mat_array:
         try:
             float(element)
-        except Exception as e:
+        except ValueError as e:
             print(e)
             return False
 

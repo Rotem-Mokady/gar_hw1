@@ -35,7 +35,7 @@ def calculate():
         error_message = "Unavailable operation entered"
 
     elif not (validate_fixed_matrix(mat1) and validate_fixed_matrix(mat2)):
-        error_message = "Matrix should be passed as a list of number, and it's must be squared"
+        error_message = "Matrix should be passed as a list of number, and it must be squared"
 
     elif len(mat1.split(',')) != len(mat2.split(',')):
         error_message = "The two matrices must be on the same size"
